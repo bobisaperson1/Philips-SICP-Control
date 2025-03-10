@@ -1,0 +1,649 @@
+{
+    "00": {
+        "name": "Response",
+        "type": "None",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "Response",
+                "type": "list",
+                "Options": {
+                    "06": "Acknowledge",
+                    "15": "Unknown error",
+                    "18": "Not supported"
+                }
+            }
+        }
+    },
+    "A2": {
+        "name": "SICP Version & Platform Information",
+        "type": "Get",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Which Label",
+                "type": "list",
+                "Options": {
+                    "00": "Implementation version",
+                    "01": "Platform label",
+                    "02": "Platform version"
+                }
+            }
+        },
+        "response": {
+            "1": {
+                "type": "ASCII",
+                "Description": "Characters"
+            }
+        }
+    },
+    "A1": {
+        "name": "Model & Firmware Information",
+        "type": "Get",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Codes to request",
+                "type": "list",
+                "Options": {
+                    "00": "Model Number",
+                    "01": "FW version",
+                    "02": "Build date",
+                    "03": "Android FW version",
+                    "04": "HDMI Switch version",
+                    "05": "LAN FW version"
+                }
+            }
+        },
+        "response": {
+            "1": {
+                "type": "ASCII",
+                "Description": "Characters"
+            }
+        }
+    },
+    "0F": {
+        "name": "Operating Hours",
+        "type": "Get",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Item",
+                "type": "list",
+                "Options": {
+                    "02": "Operating Hours"
+                }
+            }
+        },
+        "response": {
+            "1": {
+                "type": "number",
+                "Description": "Operating Hours MSB"
+            },
+            "2": {
+                "type": "number",
+                "Description": "Operating Hours LSB"
+            }
+        }
+    },
+    "2F": {
+        "name": "Temperature Sensors",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "type": "number",
+                "Description": "Temperature Sensor 1"
+            },
+            "2": {
+                "type": "number",
+                "Description": "Temperature Sensor 2"
+            }
+        }
+    },
+    "15": {
+        "name": "Serial Number",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "type": "ASCII",
+                "Description": "Character 1"
+            },
+            "2": {
+                "type": "ASCII",
+                "Description": "Character 2"
+            },
+            "3": {
+                "type": "ASCII",
+                "Description": "Character 3"
+            },
+            "4": {
+                "type": "ASCII",
+                "Description": "Character 4"
+            },
+            "5": {
+                "type": "ASCII",
+                "Description": "Character 5"
+            },
+            "6": {
+                "type": "ASCII",
+                "Description": "Character 6"
+            },
+            "7": {
+                "type": "ASCII",
+                "Description": "Character 7"
+            },
+            "8": {
+                "type": "ASCII",
+                "Description": "Character 8"
+            },
+            "9": {
+                "type": "ASCII",
+                "Description": "Character 9"
+            },
+            "10": {
+                "type": "ASCII",
+                "Description": "Character 10"
+            },
+            "11": {
+                "type": "ASCII",
+                "Description": "Character 11"
+            },
+            "12": {
+                "type": "ASCII",
+                "Description": "Character 12"
+            },
+            "13": {
+                "type": "ASCII",
+                "Description": "Character 13"
+            },
+            "14": {
+                "type": "ASCII",
+                "Description": "Character 14"
+            }
+        }
+    },
+    "19": {
+        "name": "Power State",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "type": "list",
+                "Description": "Power State",
+                "Options": {
+                    "01": "Standby",
+                    "02": "On"
+                }
+            }
+        }
+    },
+    "18": {
+        "name": "Power State",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Power State",
+                "type": "list",
+                "Options": {
+                    "01": "Standby",
+                    "02": "On"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "A4": {
+        "name": "Power state at Cold Start",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "type": "list",
+                "Description": "Power at Cold Start",
+                "Options": {
+                    "00": "Power Off",
+                    "01": "Forced On",
+                    "02": "Last Status"
+                }
+            }
+        }
+    },
+    "A3": {
+        "name": "Power state at Cold Start",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Item",
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On",
+                    "02": "Last"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "D3": {
+        "name": "Power Save Mode",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "type": "list",
+                "Description": "Off / On",
+                "Options": {
+                    "00": "RGB Off & Video Off",
+                    "01": "RGB Off & Video On",
+                    "02": "RGB On & Video Off",
+                    "03": "RGB On & Video On",
+                    "04": "Mode 1",
+                    "05": "Mode 2",
+                    "06": "Mode 3",
+                    "07": "Mode 4"
+                }
+            }
+        }
+    },
+    "D2": {
+        "name": "Power Save Mode",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Off / On",
+                "type": "list",
+                "Options": {
+                    "00": "RGB Off & Video Off",
+                    "01": "RGB Off & Video On",
+                    "02": "RGB On & Video Off",
+                    "03": "RGB On & Video On",
+                    "04": "Mode 1",
+                    "05": "Mode 2",
+                    "06": "Mode 3",
+                    "07": "Mode 4"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "DE": {
+        "name": "Smart Power",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "Level of Smart Power control", 
+                "type": "list",
+                "Options": {
+                    "00": "OFF",
+                    "01": "Low",
+                    "02": "Medium",
+                    "03": "High"
+                }
+            }
+        }
+    },
+    "DD": {
+        "name": "Smart Power",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Level of Smart Power control", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "Low",
+                    "02": "Medium",
+                    "03": "High"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "D1": {
+        "name": "Advanced Power Management",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "Mode", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On",
+                    "02": "Mode 1 (TCP off/WOL on)",
+                    "03": "Mode 2 (TCP on/WOL off)"
+                }
+            }
+        }
+    },
+    "D0": {
+        "name": "Advanced Power Management",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Mode", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On",
+                    "02": "Mode 1",
+                    "03": "Mode 2"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "63": {
+        "name": "ECO Mode",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "Mode", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On"
+                }
+            }
+        }
+    },
+    "64": {
+        "name": "ECO Mode",
+        "type": "Get",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Mode", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "57": {
+        "name": "Monitor Restart",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Select target system to restart", 
+                "type": "list",
+                "Options": {
+                    "00": "Android",
+                    "01": "Scalar"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "71": {
+        "name": "Backlight",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "State", 
+                "type": "list",
+                "Options": {
+                    "00": "On",
+                    "01": "Off"
+                }
+            }
+        }
+    },
+    "72": {
+        "name": "Backlight",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "State", 
+                "type": "list",
+                "Options": {
+                    "00": "On",
+                    "01": "Off"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "6E": {
+        "name": "OPS/SDM Power settings",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "State", 
+                "type": "list",
+                "Options": {
+                    "00": "Always Off",
+                    "01": "Always On",
+                    "02": "Auto"
+                }
+            }
+        }
+    },
+    "6F": {
+        "name": "OPS/SDM Power settings",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "State", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On",
+                    "02": "Auto"
+                }
+            }
+        },
+        "response": {
+        }
+    },
+    "AD": {
+        "name": "Input Source",
+        "type": "Get",
+        "notes": "",
+        "command": {
+        },
+        "response": {
+            "1": {
+                "Description": "Input Source Type/Number", 
+                "type": "list",
+                "Options": {
+                    "01": "VIDEO",
+                    "02": "S-VIDEO",
+                    "03": "COMPONENT",
+                    "04": "CVI 2",
+                    "05": "VGA",
+                    "06": "HDMI 2",
+                    "07": "Display Port 2",
+                    "08": "USB 2",
+                    "09": "Card DVI-D",
+                    "0A": "Display Port 1",
+                    "0B": "Card OPS",
+                    "0C": "USB 1",
+                    "0D": "HDMI 1",
+                    "0E": "DVI-D",
+                    "0F": "HDMI 3",
+                    "10": "BROWSER",
+                    "11": "SMARTCMS",
+                    "12": "DMS (Digital Media Server)",
+                    "13": "INTRENAL STORAGE",
+                    "14": "Reserved",
+                    "15": "Reserved",
+                    "16": "Media Player",
+                    "17": "PDF Player",
+                    "18": "Custom",
+                    "19": "HDMI 4",
+                    "1A": "VGA 2",
+                    "1B": "VGA 3",
+                    "1C": "IWB",
+                    "1D": "CMND & Play Web",
+                    "1E": "Home/Launcher",
+                    "1F": "USB Type C 1",
+                    "20": "Kiosk",
+                    "21": "Smart Info",
+                    "22": "Tuner",
+                    "23": "Google Cast",
+                    "24": "Interact",
+                    "25": "USB Type C 2"
+                }
+            },
+            "2": {
+                "Description": "Playlist or URL", 
+                "type": "list",
+                "Options": {
+                    "00": "no playlist or URL",
+                    "01": "Playlist file 1 or URL 1",
+                    "02": "Playlist file 2 or URL 2",
+                    "03": "Playlist file 3 or URL 3",
+                    "04": "Playlist file 4 or URL 4",
+                    "05": "Playlist file 5 or URL 5",
+                    "06": "Playlist file 6 or URL 6",
+                    "07": "Playlist file 7 or URL 7",
+                    "08": "USB autoplay"
+                }
+            },
+            "3": {
+                "Description": "OSD Style", 
+                "type": "list",
+                "Options": {
+                    "01": "Reserved"
+                }
+            },
+            "4": {
+                "Description": "Mute Style", 
+                "type": "list",
+                "Options": {
+                    "00": "Reserved"
+                }
+            }
+        }
+    },
+    "AC": {
+        "name": "Input Source",
+        "type": "Set",
+        "notes": "",
+        "command": {
+            "1": {
+                "Description": "Input Source Type/Number", 
+                "type": "list",
+                "Options": {
+                    "01": "VIDEO",
+                    "02": "S-VIDEO",
+                    "03": "COMPONENT",
+                    "04": "CVI 2",
+                    "05": "VGA",
+                    "06": "HDMI 2",
+                    "07": "Display Port 2",
+                    "08": "USB 2",
+                    "09": "Card DVI-D",
+                    "0A": "Display Port 1",
+                    "0B": "Card OPS",
+                    "0C": "USB 1",
+                    "0D": "HDMI 1",
+                    "0E": "DVI-D",
+                    "0F": "HDMI 3",
+                    "10": "BROWSER",
+                    "11": "SMARTCMS",
+                    "12": "DMS",
+                    "13": "INTRENAL STORAGE",
+                    "14": "Reserved",
+                    "15": "Reserved",
+                    "16": "Media Player",
+                    "17": "PDF Player",
+                    "18": "Custom",
+                    "19": "HDMI 4",
+                    "1A": "VGA 2",
+                    "1B": "VGA 3",
+                    "1C": "IWB",
+                    "1D": "CMND",
+                    "1E": "Home",
+                    "1F": "USB Type C 1",
+                    "20": "Kiosk",
+                    "21": "Smart Info",
+                    "22": "Tuner",
+                    "23": "Google Cast",
+                    "24": "Interact",
+                    "25": "USB Type C 2"
+                }
+            },
+            "2": {
+                "Description": "Playlist or URL", 
+                "type": "list",
+                "Options": {
+                    "00": "none",
+                    "01": "1",
+                    "02": "2",
+                    "03": "3",
+                    "04": "4",
+                    "05": "5",
+                    "06": "6",
+                    "07": "7",
+                    "08": "USB"
+                }
+            },
+            "3": {
+                "Description": "Source label", 
+                "type": "list",
+                "Options": {
+                    "00": "Off",
+                    "01": "On"
+                }
+            },
+            "4": {
+                "Description": "Mute Style", 
+                "type": "list",
+                "Options": {
+                    "00": "Reserved"
+                }
+            }
+        },
+        "response": {
+        }
+    }
+}
