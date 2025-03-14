@@ -1,8 +1,7 @@
 import socket
-import time
 import json
 
-bible = json.loads(open("D:\\Users\\Bfulh\\Desktop\\Philips SICP control\\data.JSON").read())
+bible = json.loads(open("data.JSON").read())
 
 def Generate_Checksum(data: str):
     a = data[:-2]
@@ -71,11 +70,6 @@ def retrieve_command(command_name, type):
                 print(command)
                 return command
 
-            
-
-
-
-
 class device:
     def __init__(self, ip, port, control_ID, group_ID):
         self.ip = ip
@@ -122,34 +116,31 @@ class device:
         check_response(data)
         return data
 
-
-
 #set commands
-Set_Power_Standby = "06010018011E"
-Set_Power_On = "06010018021D"
-Set_Reboot = "060100570050"
-Set_Volume_Mute_On = "060100470141"
-Set_Volume_Mute_Off = "060100470040"
-Set_tune_to_Channel = "070100C200" # + channel number + Xor checksum
-Set_Channel_Up_Tune = "060100C301C5"
-Set_Channel_Down_Tune = "060100C300C4"
-Set_Volume_Up = "07010041010244"
-Set_Volume_Down = "07010041000245"
-Set_Input_Source_Tuner = "090100AC220901008E"
-Set_Input_Source_HDMI1 = "090100AC0D090100A1"
-Set_Input_Source_HDMI2 = "090100AC06090100AA"
-Set_Input_Source_HDMI3 = "090100AC0F090100A3"
-Set_Input_Source_HDMI4 = "090100AC19090100B5"
-Set_Input_Source_USB = "090100AC0C090100A0"
-Set_Input_Source_Smart_Info = "090100AC210901008D"
-Set_Input_Source_Googlecast = "090100AC230901008F"
-Set_Input_Source_Custom = "090000AC18000100BC"
+#Set_Power_Standby = "06010018011E"
+#Set_Power_On = "06010018021D"
+#Set_Reboot = "060100570050"
+#Set_Volume_Mute_On = "060100470141"
+#Set_Volume_Mute_Off = "060100470040"
+#Set_tune_to_Channel = "070100C200" # + channel number + Xor checksum
+#Set_Channel_Up_Tune = "060100C301C5"
+#Set_Channel_Down_Tune = "060100C300C4"
+#Set_Volume_Up = "07010041010244"
+#Set_Volume_Down = "07010041000245"
+#Set_Input_Source_Tuner = "090100AC220901008E"
+#Set_Input_Source_HDMI1 = "090100AC0D090100A1"
+#Set_Input_Source_HDMI2 = "090100AC06090100AA"
+#Set_Input_Source_HDMI3 = "090100AC0F090100A3"
+#Set_Input_Source_HDMI4 = "090100AC19090100B5"
+#Set_Input_Source_USB = "090100AC0C090100A0"
+#Set_Input_Source_Smart_Info = "090100AC210901008D"
+#Set_Input_Source_Googlecast = "090100AC230901008F"
+#Set_Input_Source_Custom = "090000AC18000100BC"
 
 #get commands
-Get_Power = "050100191D"
-Get_Volume_Mute = "0501004642"
-Get_Current_Channel_Number = "050100C1C5"
-Get_Current_Input_Source = "050100ADA9"
+#Get_Volume_Mute = "0501004642"
+#Get_Current_Channel_Number = "050100C1C5"
+#Get_Current_Input_Source = "050100ADA9"
 
 TV = device("10.0.0.121", 5000, 1, 0)
 TV.connect()
