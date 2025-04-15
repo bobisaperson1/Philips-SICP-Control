@@ -4,4 +4,4 @@ SERIAL / ETHERNET INTERFACE COMMUNICATION PROTOCOL SPECIFICATION (SICP V2.10) Fo
 
 TODO:
     - Finish data file based on documentation (tedious af)
-    - 
+    -

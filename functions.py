@@ -1,21 +1,26 @@
 import socket
 import json
 
-bible = json.loads(open("data.JSON").read())
+biblefile = "data.JSON"
+
+bible = json.loads(open(biblefile).read())
 
 def Generate_Checksum(data: str):
     a = data[:-2]
     b = [a[i:i+2] for i in range(0, len(a), 2)] # ['10', 'F8', '00', ...
     sum = "0"
     for i in b:
+        print(i)
         sum = hex(int(sum, 16) ^ int(i, 16))
     return str(sum).replace("0x", "").upper().zfill(2)
 
-def Generate_Command(Control_ID: str, Group: str, Command: str, Data):
+def Generate_Command(Control_ID: str, Group: str, Command: str, Data: int=""):
     temp_command = ""
     temp_command += str(len(Data) + 5).zfill(2)
     temp_command += Control_ID
+    print(temp_command)
     temp_command += Group
+    print(temp_command)
     temp_command += Command
     for i in Data:
         temp_command += Data[i]
@@ -36,7 +41,7 @@ def Decode_Hex(Hex, Hex_type="response"):
     data = b[3:-1]
     command = data[0]
     checksum = b[-1]
-    if  int(Generate_Checksum(Hex), 16) == int(checksum, 16):
+    if  int(Generate_Checksum(Hex[:-2]), 16) == int(checksum, 16):
         print("\033[92mChecksum OK\033[0m")
     else:
         print("\033[91mChecksum failed\033[0m")
@@ -74,8 +79,8 @@ class device:
     def __init__(self, ip, port, control_ID, group_ID):
         self.ip = ip
         self.port = port
-        self.control_ID = hex(control_ID)
-        self.group_ID = hex(group_ID)
+        self.control_ID = str(control_ID).zfill(2)
+        self.group_ID = str(group_ID).zfill(2)
 
     def connect(self):
         host = self.ip
@@ -142,9 +147,8 @@ class device:
 #Get_Current_Channel_Number = "050100C1C5"
 #Get_Current_Input_Source = "050100ADA9"
 
-TV = device("10.0.0.121", 5000, 1, 0)
+TV = device("10.0.0.123", 5000, 1, 0)
 TV.connect()
-print("Sending data")
 #TV.connection.send(bytes.fromhex(Generate_Command("01", "00", "AC", {1: "05", 2: "00", 3: "01", 4: "00"})))
 #print("")
 #print("Waiting for response")
