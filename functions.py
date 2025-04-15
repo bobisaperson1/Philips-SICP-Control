@@ -58,11 +58,11 @@ def Decode_Hex(Hex, Hex_type="response"):
                     print(f"{bible[command][Hex_type][byte]['Description']}: {bytes.fromhex(data[int(byte)]).decode('ascii')}")
 
 def check_response(control_ID, group_ID, response):
-    a = data
+    a = response
     b = [a[i:i+2] for i in range(0, len(a), 2)] # ['10', 'F8', '00', ...
     size = int(b[0])
-    control_id_check = int(b[1]) == control_ID
-    group_id_check = int(b[2]) == group_ID
+    control_id_check = str(b[1]).zfill(2) == control_ID
+    group_id_check = str(b[2]).zfill(2) == group_ID
     data = b[3:-1]
     command = data[0]
     checksum_check = b[-1] == Generate_Checksum(response[-2])
@@ -107,7 +107,7 @@ class device:
         data_temp = str(self.connection.recv(1024).hex())
         data = data_temp.replace("\\x", "").replace("b'", "").replace("'", "").upper()
         print('Received:', data)
-        check_response(data)
+        print(check_response(self.control_ID, self.group_ID, data))
         return data
 
     def set(self, command: str, *args: str):
