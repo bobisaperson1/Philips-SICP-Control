@@ -1,7 +1,6 @@
 import socket
 import json
 
-
 def Generate_Checksum(data: str):
     a = data
     b = [a[i:i+2] for i in range(0, len(a), 2)] # ['10', 'F8', '00', ...
@@ -40,6 +39,7 @@ def Decode_Hex(Hex, bible, Hex_type="response"):
     else:
         print("- \033[91mChecksum failed\033[0m")
     print("- Command:", bible[command]['name'])
+    response = b[4:-1]
     if command in bible:
         for byte in bible[command][Hex_type]:
             type = bible[command][Hex_type][byte]['type']
@@ -50,6 +50,7 @@ def Decode_Hex(Hex, bible, Hex_type="response"):
                     print(f"- {bible[command][Hex_type][byte]['Description']}: {data[int(byte)]}")
                 case "ASCII":
                     print(f"- {bible[command][Hex_type][byte]['Description']}: {bytes.fromhex(data[int(byte)]).decode('ascii')}")
+    return response
 
 def check_response(control_ID, group_ID, response):
     a = response
@@ -101,8 +102,7 @@ class device:
         data_temp = str(self.connection.recv(1024).hex())
         data = data_temp.replace("\\x", "").replace("b'", "").replace("'", "").upper()
         print('Received:', data)
-        Decode_Hex(data, self.bible)
-        return data
+        return Decode_Hex(data, self.bible)
 
     def set(self, command: str, *args: int):
         print("Sending data")
@@ -112,13 +112,13 @@ class device:
         data_temp = str(self.connection.recv(1024).hex())
         data = data_temp.replace("\\x", "").replace("b'", "").replace("'", "").upper()
         print('Received:', data)
-        Decode_Hex(data, self.bible)
-        return data
+        return Decode_Hex(data, self.bible)
 
 
 TV = device("10.0.0.123", 5000, 1, 0, "data.json")
 TV.connect()
-TV.get("Power State")
-input("enter to continue")
-TV.set("Power State", 1) 
+if TV.get("Power State")[0] == "01":
+    TV.set("Power State", 2)
+else:
+    TV.set("Power State", 1)
 TV.disconnect()
